@@ -1,5 +1,5 @@
 require 'sinatra'
 
-get '/' do
-  'Hello World'
+get '/v2/catalog' do
+  '{"services": []}'
 end
