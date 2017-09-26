@@ -1,6 +1,8 @@
 require 'sinatra'
+require 'json'
 
 get '/v2/catalog' do
+  content_type :json
   '{
     "services": [{
       "name": "fake-service",

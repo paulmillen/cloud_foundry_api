@@ -1,6 +1,6 @@
 require File.expand_path '../spec_helper.rb', __FILE__
 
-describe 'The API App' do
+describe 'App' do
 
     it 'returns a string containing json' do
       get '/v2/catalog'
@@ -19,6 +19,12 @@ describe 'The API App' do
                                     }]
                                   }]
                                 } )
+    end
+
+    it 'responds with json content type' do
+      get '/v2/catalog'
+      return_hash = JSON.parse(last_response.body)
+      expect(last_response.header['Content-Type']).to include 'application/json'
     end
 
 end
