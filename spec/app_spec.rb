@@ -16,15 +16,15 @@ describe 'App' do
                                       "name" => "fake-plan-1",
                                       "id" => "d3031751-XXXX-XXXX-XXXX-a42377d3320e",
                                       "description" => "Shared fake Server, 5tb persistent disk, 40 max concurrent connections"
+                                      }]
                                     }]
-                                  }]
-                                } )
+                                  } )
     end
 
     it 'responds with json content type' do
       get '/v2/catalog'
-      return_hash = JSON.parse(last_response.body)
       expect(last_response.header['Content-Type']).to include 'application/json'
+      expect(last_response.header['Content-Type']).not_to include 'text/html'
     end
 
 end
